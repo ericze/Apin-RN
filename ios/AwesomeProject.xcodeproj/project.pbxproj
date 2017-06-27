@@ -39,6 +39,13 @@
 		37378EE61F01F3AE00611941 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37378EE51F01F3AE00611941 /* libsqlite3.0.tbd */; };
 		37378EE81F01F3B800611941 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37378EE71F01F3B800611941 /* libc++.tbd */; };
 		37378EEA1F01F3EB00611941 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37378EE91F01F3EB00611941 /* libz.tbd */; };
+		37378F5F1F0262A900611941 /* OpenShare+Alipay.m in Sources */ = {isa = PBXBuildFile; fileRef = 37378F511F0262A900611941 /* OpenShare+Alipay.m */; };
+		37378F601F0262A900611941 /* OpenShare+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 37378F531F0262A900611941 /* OpenShare+QQ.m */; };
+		37378F611F0262A900611941 /* OpenShare+Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = 37378F551F0262A900611941 /* OpenShare+Renren.m */; };
+		37378F621F0262A900611941 /* OpenShare+Weibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 37378F571F0262A900611941 /* OpenShare+Weibo.m */; };
+		37378F631F0262A900611941 /* OpenShare+Weixin.m in Sources */ = {isa = PBXBuildFile; fileRef = 37378F591F0262A900611941 /* OpenShare+Weixin.m */; };
+		37378F641F0262A900611941 /* OpenShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 37378F5B1F0262A900611941 /* OpenShare.m */; };
+		37378F651F0262A900611941 /* SocietyLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37378F5E1F0262A900611941 /* SocietyLoginManager.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		A0937116E88F4B7094BB50CE /* libRCTWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2FD58069444E6ADE863CA /* libRCTWeChat.a */; };
@@ -270,6 +277,21 @@
 		37378EE51F01F3AE00611941 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		37378EE71F01F3B800611941 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		37378EE91F01F3EB00611941 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		37378F501F0262A900611941 /* OpenShare+Alipay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Alipay.h"; sourceTree = "<group>"; };
+		37378F511F0262A900611941 /* OpenShare+Alipay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Alipay.m"; sourceTree = "<group>"; };
+		37378F521F0262A900611941 /* OpenShare+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+QQ.h"; sourceTree = "<group>"; };
+		37378F531F0262A900611941 /* OpenShare+QQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+QQ.m"; sourceTree = "<group>"; };
+		37378F541F0262A900611941 /* OpenShare+Renren.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Renren.h"; sourceTree = "<group>"; };
+		37378F551F0262A900611941 /* OpenShare+Renren.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Renren.m"; sourceTree = "<group>"; };
+		37378F561F0262A900611941 /* OpenShare+Weibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Weibo.h"; sourceTree = "<group>"; };
+		37378F571F0262A900611941 /* OpenShare+Weibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Weibo.m"; sourceTree = "<group>"; };
+		37378F581F0262A900611941 /* OpenShare+Weixin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Weixin.h"; sourceTree = "<group>"; };
+		37378F591F0262A900611941 /* OpenShare+Weixin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Weixin.m"; sourceTree = "<group>"; };
+		37378F5A1F0262A900611941 /* OpenShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenShare.h; sourceTree = "<group>"; };
+		37378F5B1F0262A900611941 /* OpenShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenShare.m; sourceTree = "<group>"; };
+		37378F5C1F0262A900611941 /* OpenShareHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenShareHeader.h; sourceTree = "<group>"; };
+		37378F5D1F0262A900611941 /* SocietyLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocietyLoginManager.h; sourceTree = "<group>"; };
+		37378F5E1F0262A900611941 /* SocietyLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocietyLoginManager.m; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		60BBB3EB62AB4E8BA0813853 /* RCTWeChat.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTWeChat.xcodeproj; path = "../node_modules/react-native-wechat/ios/RCTWeChat.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -415,6 +437,7 @@
 		13B07FAE1A68108700A75B9A /* AwesomeProject */ = {
 			isa = PBXGroup;
 			children = (
+				37378F111F024C7F00611941 /* OpenShare */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -459,6 +482,37 @@
 				37378EE11F01F39600611941 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37378F111F024C7F00611941 /* OpenShare */ = {
+			isa = PBXGroup;
+			children = (
+				37378F4F1F0262A900611941 /* src */,
+			);
+			name = OpenShare;
+			path = AwesomeProject/OpenShare;
+			sourceTree = "<group>";
+		};
+		37378F4F1F0262A900611941 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				37378F501F0262A900611941 /* OpenShare+Alipay.h */,
+				37378F511F0262A900611941 /* OpenShare+Alipay.m */,
+				37378F521F0262A900611941 /* OpenShare+QQ.h */,
+				37378F531F0262A900611941 /* OpenShare+QQ.m */,
+				37378F541F0262A900611941 /* OpenShare+Renren.h */,
+				37378F551F0262A900611941 /* OpenShare+Renren.m */,
+				37378F561F0262A900611941 /* OpenShare+Weibo.h */,
+				37378F571F0262A900611941 /* OpenShare+Weibo.m */,
+				37378F581F0262A900611941 /* OpenShare+Weixin.h */,
+				37378F591F0262A900611941 /* OpenShare+Weixin.m */,
+				37378F5A1F0262A900611941 /* OpenShare.h */,
+				37378F5B1F0262A900611941 /* OpenShare.m */,
+				37378F5C1F0262A900611941 /* OpenShareHeader.h */,
+				37378F5D1F0262A900611941 /* SocietyLoginManager.h */,
+				37378F5E1F0262A900611941 /* SocietyLoginManager.m */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -968,7 +1022,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				37378F611F0262A900611941 /* OpenShare+Renren.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				37378F641F0262A900611941 /* OpenShare.m in Sources */,
+				37378F5F1F0262A900611941 /* OpenShare+Alipay.m in Sources */,
+				37378F621F0262A900611941 /* OpenShare+Weibo.m in Sources */,
+				37378F601F0262A900611941 /* OpenShare+QQ.m in Sources */,
+				37378F631F0262A900611941 /* OpenShare+Weixin.m in Sources */,
+				37378F651F0262A900611941 /* SocietyLoginManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

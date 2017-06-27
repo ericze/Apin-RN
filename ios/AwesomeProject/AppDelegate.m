@@ -12,6 +12,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <React/RCTLinkingManager.h>
+#import "OpenShareHeader.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -30,10 +31,17 @@
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
+  [OpenShare connectQQWithAppId:@"1105694910"];
+  [OpenShare connectWeiboWithAppKey:@"3448287776"];
+  [OpenShare connectWeixinWithAppId:@"wx3783eec7a89a70d5"];
+
   [self.window makeKeyAndVisible];
   return YES;
 }
   -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation{
+    if ([OpenShare handleOpenURL:url]) {
+      return YES;
+    }
     return [RCTLinkingManager application:application openURL:url
                         sourceApplication:sourceApplication annotation:annotation];
   }

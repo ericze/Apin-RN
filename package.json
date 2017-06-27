@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.3",
+    "react-native-open-share": "git+https://github.com/mozillo/react-native-open-share.git",
     "react-native-wechat": "^1.9.5"
   },
   "devDependencies": {

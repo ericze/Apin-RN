@@ -3,6 +3,7 @@
  * https://github.com/facebook/react-native
  * @flow
  */
+'use strict';
 
 import React, { Component } from 'react';
 import {
@@ -13,8 +14,12 @@ import {
   View,
   TouchableHighlight,
   Alert,
+  AlertIOS,
+  DeviceEventEmitter,
 } from 'react-native';
+
 var WeChat=require('react-native-wechat');
+var openShare = require('react-native-open-share');
 
 class CustomButton extends Component {
   render() {
@@ -35,6 +40,64 @@ export default class AwesomeProject extends Component {
       //应用注册
       WeChat.registerApp('wx3783eec7a89a70d5');
   }
+  _weiboLogin() {
+        var _this = this;
+        openShare.weiboLogin();
+
+        if (!_this.weiboLogin) {
+            _this.weiboLogin = DeviceEventEmitter.addListener(
+                'managerCallback', (response) => {
+                    AlertIOS.alert(
+                        'response',
+                         JSON.stringify(response)
+                    );
+
+                    _this.weiboLogin.remove();
+                    delete _this.weiboLogin;
+                }
+            );
+        }
+    }
+
+    _qqLogin() {
+
+        openShare.qqLogin();
+
+        if (!this.qqLogin) {
+            this.qqLogin = DeviceEventEmitter.addListener(
+                'managerCallback', (response) => {
+                    AlertIOS.alert(
+                        'response',
+                        JSON.stringify(response)
+                    );
+
+
+                }
+            );
+        }
+    }
+
+    _wechatLogin() {
+        var _this = this;
+        if (WeChat.isWXAppInstalled) {
+
+        }
+        openShare.wechatLogin();
+
+        if (!_this.wechatLogin) {
+            _this.wechatLogin = DeviceEventEmitter.addListener(
+                'managerCallback', (response) => {
+                    AlertIOS.alert(
+                        'response',
+                        JSON.stringify(response)
+                    );
+
+                    _this.wechatLogin.remove();
+                    delete _this.wechatLogin;
+                }
+            );
+        }
+    }
   render() {
     return (
       <View style={styles.container}>
@@ -42,26 +105,6 @@ export default class AwesomeProject extends Component {
           Welcome to Reactiveasdsad Native!
         </Text>
         <Text style={styles.red}>just red</Text>
-
-        <CustomButton text='微信好友分享-文本'
-           onPress={() => {
-                   WeChat.isWXAppInstalled()
-                     .then((isInstalled) => {
-                       if (isInstalled) {
-                         WeChat.shareToSession({type: 'text', description: '测试微信好友分享文本'})
-                         .catch((error) => {
-                           Alert.alert(
-                             error.message,
-                           )
-                         });
-                       } else {
-                         Alert.alert(
-                           '没有安装微信软件，请您安装微信之后再试',
-                         )
-                       }
-                     });
-               }}
-         />
 
          <CustomButton text='微信好友分享-链接'
                   onPress={() => {
@@ -86,23 +129,7 @@ export default class AwesomeProject extends Component {
                             });
                       }}
                 />
-                <CustomButton text='微信朋友圈分享-文本'
-                  onPress={() => {
-                          WeChat.isWXAppInstalled()
-                            .then((isInstalled) => {
-                              if (isInstalled) {
-                                WeChat.shareToTimeline({type: 'text', description: '测试微信朋友圈分享文本'})
-                                .catch((error) => {
-                                  Alert.alert(
-                                    error.message,
-                                  )
-                                });
-                              } else {
-                              Alert.alert('没有安装微信软件，请您安装微信之后再试');
-                              }
-                            });
-                      }}
-                />
+
                 <CustomButton text='微信朋友圈分享-链接'
                   onPress={() => {
                           WeChat.isWXAppInstalled()
@@ -125,6 +152,16 @@ export default class AwesomeProject extends Component {
                               }
                             });
                       }}
+                />
+
+                <CustomButton text='微信登陆'
+                  onPress={this._wechatLogin}
+                />
+                <CustomButton text='QQ登陆'
+                  onPress={this._qqLogin}
+                />
+                <CustomButton text='微博登陆'
+                  onPress={this._weiboLogin}
                 />
       </View>
     );
