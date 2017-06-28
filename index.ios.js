@@ -154,6 +154,32 @@ export default class AwesomeProject extends Component {
                       }}
                 />
 
+                <CustomButton text='微信支付'
+                  onPress={() => {
+                          WeChat.isWXAppInstalled()
+                            .then((isInstalled) => {
+                              if (isInstalled) {
+                                WeChat.pay({
+                                  title:'微信朋友圈测试链接',
+                                  partnerId: 'bb22f07fcf744a69a3499f21e56c374b',
+                                  prepayId: 'WX1217752501201407033233368018',
+                                  nonceStr: '5K8264ILTKCH16CQ2502SI8ZNMTM67VS',
+                                  timeStamp: '1412000000',
+                                  package: 'Sign=WXPay	',
+                                  sign: 'C380BEC2BFD727A4B6845133519F3AD6'
+                                })
+                                .catch((error) => {
+                                  Alert.alert(
+                                    error.message,
+                                  )
+                                });
+                              } else {
+                                Alert.alert('没有安装微信软件，请您安装微信之后再试');
+                              }
+                            });
+                      }}
+                />
+
                 <CustomButton text='微信登陆'
                   onPress={this._wechatLogin}
                 />
