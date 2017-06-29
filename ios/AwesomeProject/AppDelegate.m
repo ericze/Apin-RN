@@ -17,6 +17,7 @@
 #import <React/RCTRootView.h>
 #import <React/RCTLinkingManager.h>
 #import "OpenShareHeader.h"
+#import <AlipaySDK/AlipaySDK.h>
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -57,19 +58,42 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [OpenShare connectQQWithAppId:@"1105694910"];
-  [OpenShare connectWeiboWithAppKey:@"3448287776"];
+  [OpenShare connectWeiboWithAppKey:@"wb3448287776"];
   [OpenShare connectWeixinWithAppId:@"wx3783eec7a89a70d5"];
 
   [self.window makeKeyAndVisible];
   return YES;
 }
+//9.0之前接口
   -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation{
+    if ([url.host isEqualToString:@"safepay"]) {
+      //跳转支付宝钱包进行支付，处理支付结果
+      [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+        NSLog(@"result = %@",resultDic);
+      }];
+    }
     if ([OpenShare handleOpenURL:url]) {
       return YES;
     }
     return [RCTLinkingManager application:application openURL:url
                         sourceApplication:sourceApplication annotation:annotation];
   }
+//9.0之后新接口
+//-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+//  if ([url.host isEqualToString:@"safepay"]) {
+//    //跳转支付宝钱包进行支付，处理支付结果
+//    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+//      NSLog(@"result = %@",resultDic);
+//    }];
+//  }
+//  if ([OpenShare handleOpenURL:url]) {
+//    return YES;
+//  }
+//  return [RCTLinkingManager application:app openURL:url
+//                      sourceApplication:sourceApplication annotation:annotation];
+//  
+//  return YES;
+//}
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 [JPUSHService registerDeviceToken:deviceToken];
 }

@@ -13,14 +13,20 @@ import {
   FlatList,
   View,
   TouchableHighlight,
+  TouchableOpacity,
   Alert,
   AlertIOS,
   DeviceEventEmitter,
 } from 'react-native';
+///进行导入NativeModules中的CalendarManger模块
+import { NativeModules } from 'react-native';
+import { NativeAppEventEmitter } from 'react-native';
 
-var WeChat=require('react-native-wechat');
+var subscription;
+var WeChat =require('react-native-wechat');
 var openShare = require('react-native-open-share');
-var { NativeAppEventEmitter } = require('react-native');
+var AliPayManager = NativeModules.AliPayManager;
+var SocietyLoginManager = NativeModules.SocietyLoginManager;
 
 class CustomButton extends Component {
   render() {
@@ -40,13 +46,23 @@ export default class AwesomeProject extends Component {
       super(props);
       //应用注册
       WeChat.registerApp('wx3783eec7a89a70d5');
-
-      var subscription = NativeAppEventEmitter.addListener(
-'ReceiveNotification',
-(notification) => Alert.alert(notification)
-);
-
   }
+  componentDidMount(){
+      console.log('开始订阅通知...');
+      subscription = NativeAppEventEmitter.addListener(
+           'EventAliPay',
+            (reminder) => {
+              AlertIOS.alert(
+                  'reminder',
+                   JSON.stringify(reminder)
+              );
+            }
+           );
+    }
+
+  componentWillUnmount(){
+       subscription.remove();
+    }
 
   _weiboLogin() {
         var _this = this;
@@ -60,36 +76,35 @@ export default class AwesomeProject extends Component {
                          JSON.stringify(response)
                     );
 
-                    _this.weiboLogin.remove();
-                    delete _this.weiboLogin;
+                    _this._weiboLogin.remove();
+                    delete _this._weiboLogin;
                 }
             );
         }
     }
 
     _qqLogin() {
-
+        var _this = this;
         openShare.qqLogin();
 
-        if (!this.qqLogin) {
-            this.qqLogin = DeviceEventEmitter.addListener(
+        if (!_this.qqLogin) {
+            _this.qqLogin = DeviceEventEmitter.addListener(
                 'managerCallback', (response) => {
                     AlertIOS.alert(
                         'response',
                         JSON.stringify(response)
                     );
 
-
+                    _this._qqLogin.remove();
+                    delete _this._qqLogin;
                 }
             );
         }
+        _this.qqLogin.remove();
     }
 
     _wechatLogin() {
         var _this = this;
-        if (WeChat.isWXAppInstalled) {
-
-        }
         openShare.wechatLogin();
 
         if (!_this.wechatLogin) {
@@ -99,7 +114,6 @@ export default class AwesomeProject extends Component {
                         'response',
                         JSON.stringify(response)
                     );
-
                     _this.wechatLogin.remove();
                     delete _this.wechatLogin;
                 }
@@ -188,14 +202,50 @@ export default class AwesomeProject extends Component {
                       }}
                 />
 
+                <CustomButton text='支付宝支付'
+                  onPress={()=>AliPayManager.aliPay('sdfklsasdads2324dadasdasd333asdad')}
+                />
+
+
+                <TouchableOpacity onPress={this._wechatLogin}>
+                          <Text>WeChat Login</Text>
+                        </TouchableOpacity>
+
                 <CustomButton text='微信登陆'
-                  onPress={this._wechatLogin}
+                  onPress={() => {
+                          WeChat.isWXAppInstalled()
+                            .then((isInstalled) => {
+                              if (isInstalled) {
+                                this._wechatLogin()
+                              } else {
+                                Alert.alert('没有安装微信软件，请您安装微信之后再试');
+                              }
+                            });
+                      }}
                 />
                 <CustomButton text='QQ登陆'
-                  onPress={this._qqLogin}
+                  onPress={() => {
+                          openShare.isQQAppInstalled(
+                            (isInstalled) => {
+                              if (isInstalled) {
+                                this._qqLogin()
+                              } else {
+                                Alert.alert('没有安装QQ，请您安装QQ之后再试');
+                              }
+                            });
+                      }}
                 />
                 <CustomButton text='微博登陆'
-                  onPress={this._weiboLogin}
+                  onPress={() => {
+                          openShare.isWeiboAppInstalled(
+                            (error,events) => {
+                              if (events) {
+                                this._weiboLogin()
+                              } else {
+                                Alert.alert('没有安装微博，请您安装微博之后再试');
+                              }
+                            });
+                      }}
                 />
 
 

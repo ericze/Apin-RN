@@ -31,7 +31,20 @@ RCT_EXPORT_METHOD(wechatLogin) {
 RCT_EXPORT_METHOD(weiboLogin) {
   [self _callWeiboLogin];
 }
+RCT_EXPORT_METHOD(isQQAppInstalled:(RCTResponseSenderBlock)callback)
+{
+  callback(@[[NSNull null], @([OpenShare isQQInstalled])]);
+}
 
+RCT_EXPORT_METHOD(isWeXinAppInstalled:(RCTResponseSenderBlock)callback)
+{
+  callback(@[[NSNull null], @([OpenShare isWeixinInstalled])]);
+}
+
+RCT_EXPORT_METHOD(isWeiboAppInstalled:(RCTResponseSenderBlock)callback)
+{
+  callback(@[[NSNull null], @([OpenShare isWeiboInstalled])]);
+}
 
 - (void)_callback {
   NSLog(@"Success call native modules");
@@ -103,7 +116,7 @@ RCT_EXPORT_METHOD(weiboLogin) {
 //处理 返回数据中的expirationDate值，因为值的格式有问题，转换成 string 后才能符合 json 的格式要求。 ********结束********
 
 -(void)_callWeiboLogin {
-  [OpenShare WeiboAuth:@"all" redirectURI:@"http://sns.whalecloud.com" Success:^(NSDictionary *message) {
+  [OpenShare WeiboAuth:@"all" redirectURI:@"https://api.weibo.com/oauth2/default.html" Success:^(NSDictionary *message) {
     
     NSMutableDictionary* data = [self change:message];
     
