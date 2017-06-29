@@ -20,6 +20,7 @@ import {
 
 var WeChat=require('react-native-wechat');
 var openShare = require('react-native-open-share');
+var { NativeAppEventEmitter } = require('react-native');
 
 class CustomButton extends Component {
   render() {
@@ -39,7 +40,14 @@ export default class AwesomeProject extends Component {
       super(props);
       //应用注册
       WeChat.registerApp('wx3783eec7a89a70d5');
+
+      var subscription = NativeAppEventEmitter.addListener(
+'ReceiveNotification',
+(notification) => Alert.alert(notification)
+);
+
   }
+
   _weiboLogin() {
         var _this = this;
         openShare.weiboLogin();
@@ -189,6 +197,8 @@ export default class AwesomeProject extends Component {
                 <CustomButton text='微博登陆'
                   onPress={this._weiboLogin}
                 />
+
+
       </View>
     );
   }
