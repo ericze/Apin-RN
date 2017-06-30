@@ -206,11 +206,6 @@ export default class AwesomeProject extends Component {
                   onPress={()=>AliPayManager.aliPay('sdfklsasdads2324dadasdasd333asdad')}
                 />
 
-
-                <TouchableOpacity onPress={this._wechatLogin}>
-                          <Text>WeChat Login</Text>
-                        </TouchableOpacity>
-
                 <CustomButton text='微信登陆'
                   onPress={() => {
                           WeChat.isWXAppInstalled()
