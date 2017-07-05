@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <React/RCTBridge.h>
 #import <AlipaySDK/AlipaySDK.h>
+
 #import <React/RCTConvert.h>
 #import <React/RCTComponent.h>
 #import <React/RCTEventDispatcher.h>

@@ -17,7 +17,7 @@
 
 //默认名称
 RCT_EXPORT_MODULE()
-
+ 
 //对外提供方法
 RCT_EXPORT_METHOD(aliPay:(NSString *)signedString){
   NSString *appScheme = @"Apin";
@@ -28,8 +28,5 @@ RCT_EXPORT_METHOD(aliPay:(NSString *)signedString){
     [self.bridge.eventDispatcher sendAppEventWithName:@"EventAliPay" body:@{@"result":resultDic}];
   }];
 }
-RCT_EXPORT_METHOD(isQQAppInstalled:(RCTResponseSenderBlock)callback)
-{
-  callback(@[[NSNull null], @([OpenShare isQQInstalled])]);
-}
+
 @end

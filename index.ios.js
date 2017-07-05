@@ -27,6 +27,7 @@ var WeChat =require('react-native-wechat');
 var openShare = require('react-native-open-share');
 var AliPayManager = NativeModules.AliPayManager;
 var SocietyLoginManager = NativeModules.SocietyLoginManager;
+var UniPayManager = NativeModules.UniPayManager;
 
 class CustomButton extends Component {
   render() {
@@ -76,8 +77,8 @@ export default class AwesomeProject extends Component {
                          JSON.stringify(response)
                     );
 
-                    _this._weiboLogin.remove();
-                    delete _this._weiboLogin;
+                    _this.weiboLogin.remove();
+                    delete _this.weiboLogin;
                 }
             );
         }
@@ -95,12 +96,11 @@ export default class AwesomeProject extends Component {
                         JSON.stringify(response)
                     );
 
-                    _this._qqLogin.remove();
-                    delete _this._qqLogin;
+                    _this.qqLogin.remove();
+                    delete _this.qqLogin;
                 }
             );
         }
-        _this.qqLogin.remove();
     }
 
     _wechatLogin() {
@@ -206,6 +206,10 @@ export default class AwesomeProject extends Component {
                   onPress={()=>AliPayManager.aliPay('sdfklsasdads2324dadasdasd333asdad')}
                 />
 
+                <CustomButton text='银联支付'
+                  onPress={()=>UniPayManager.unionPay('sdfklsasdads2324dadasdasd333asdad')}
+                />
+
                 <CustomButton text='微信登陆'
                   onPress={() => {
                           WeChat.isWXAppInstalled()
@@ -221,8 +225,8 @@ export default class AwesomeProject extends Component {
                 <CustomButton text='QQ登陆'
                   onPress={() => {
                           openShare.isQQAppInstalled(
-                            (isInstalled) => {
-                              if (isInstalled) {
+                            (error,events) => {
+                              if (events) {
                                 this._qqLogin()
                               } else {
                                 Alert.alert('没有安装QQ，请您安装QQ之后再试');

@@ -62,14 +62,31 @@
 				<string>Apin</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>unionPay</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>unionPay</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>mqqapi</string>
 		<string>weixin</string>
 		<string>wechat</string>
 		<string>wx3783eec7a89a70d5</string>
+		<string>uppaysdk</string>
+		<string>uppaywallet</string>
+		<string>uppayx1</string>
+		<string>uppayx2</string>
+		<string>uppayx3</string>
+		<string>weibosdk</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
