@@ -28,6 +28,7 @@ var openShare = require('react-native-open-share');
 var AliPayManager = NativeModules.AliPayManager;
 var SocietyLoginManager = NativeModules.SocietyLoginManager;
 var UniPayManager = NativeModules.UniPayManager;
+var UMNative = require('react-native').NativeModules.UMNative;
 
 class CustomButton extends Component {
   render() {
@@ -154,6 +155,7 @@ export default class AwesomeProject extends Component {
 
                 <CustomButton text='微信朋友圈分享-链接'
                   onPress={() => {
+                          UMNative.onEvent('order');
                           WeChat.isWXAppInstalled()
                             .then((isInstalled) => {
                               if (isInstalled) {

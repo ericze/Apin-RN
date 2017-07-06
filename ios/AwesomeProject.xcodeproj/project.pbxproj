@@ -56,6 +56,9 @@
 		374CE18F1F04C97800B33E07 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CE18E1F04C97800B33E07 /* Order.m */; };
 		374CE1921F04D09B00B33E07 /* AliPayBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CE1911F04D09B00B33E07 /* AliPayBtn.m */; };
 		374CE1951F04D37100B33E07 /* AliPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 374CE1941F04D37100B33E07 /* AliPayManager.m */; };
+		3750DAB91F0C9A63007BF7F4 /* UMNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 3750DAB81F0C9A63007BF7F4 /* UMNative.m */; };
+		3750DAD61F0C9A83007BF7F4 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3750DAD51F0C9A83007BF7F4 /* UMMobClick.framework */; };
+		3750DAD81F0CB65E007BF7F4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3750DAD71F0CB65E007BF7F4 /* libsqlite3.tbd */; };
 		3D4D993855434291BDEBEF70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F501BEFB26F4927B0EAEF22 /* CoreGraphics.framework */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		6B8F362BCBAB4E01AC396E97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539E6B24B9144BF0AA76C9F4 /* UIKit.framework */; };
@@ -334,6 +337,10 @@
 		374CE1911F04D09B00B33E07 /* AliPayBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliPayBtn.m; sourceTree = "<group>"; };
 		374CE1931F04D37100B33E07 /* AliPayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliPayManager.h; sourceTree = "<group>"; };
 		374CE1941F04D37100B33E07 /* AliPayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliPayManager.m; sourceTree = "<group>"; };
+		3750DAB71F0C9A63007BF7F4 /* UMNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMNative.h; sourceTree = "<group>"; };
+		3750DAB81F0C9A63007BF7F4 /* UMNative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMNative.m; sourceTree = "<group>"; };
+		3750DAD51F0C9A83007BF7F4 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
+		3750DAD71F0CB65E007BF7F4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		375AEFFA1F03CA45008DF6DC /* AwesomeProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AwesomeProject.entitlements; path = AwesomeProject/AwesomeProject.entitlements; sourceTree = "<group>"; };
 		4A3FAA4E541A445D9CF3BE86 /* libresolv.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		539E6B24B9144BF0AA76C9F4 /* UIKit.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -364,14 +371,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3750DAD81F0CB65E007BF7F4 /* libsqlite3.tbd in Frameworks */,
+				37378EEA1F01F3EB00611941 /* libz.tbd in Frameworks */,
+				37378EE41F01F3A100611941 /* CoreTelephony.framework in Frameworks */,
+				3750DAD61F0C9A83007BF7F4 /* UMMobClick.framework in Frameworks */,
 				374687661F078600008A6B71 /* libPaymentControl.a in Frameworks */,
 				FD255AB6DBF14DD0AD8B0033 /* CFNetwork.framework in Frameworks */,
 				374CE18C1F04C95B00B33E07 /* QuartzCore.framework in Frameworks */,
 				374CE18A1F04C93900B33E07 /* CoreMotion.framework in Frameworks */,
-				37378EEA1F01F3EB00611941 /* libz.tbd in Frameworks */,
 				37378EE81F01F3B800611941 /* libc++.tbd in Frameworks */,
 				37378EE61F01F3AE00611941 /* libsqlite3.0.tbd in Frameworks */,
-				37378EE41F01F3A100611941 /* CoreTelephony.framework in Frameworks */,
 				37378EE21F01F39600611941 /* SystemConfiguration.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -502,6 +511,7 @@
 		13B07FAE1A68108700A75B9A /* AwesomeProject */ = {
 			isa = PBXGroup;
 			children = (
+				3750DAB61F0C9A63007BF7F4 /* umsdk_IOS_analyics_no-idfa */,
 				3746875F1F078600008A6B71 /* paymentcontrol */,
 				374CE1841F04C8F500B33E07 /* AliPay */,
 				375AEFFA1F03CA45008DF6DC /* AwesomeProject.entitlements */,
@@ -549,6 +559,7 @@
 		37378EE01F01F39600611941 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3750DAD71F0CB65E007BF7F4 /* libsqlite3.tbd */,
 				374CE18B1F04C95B00B33E07 /* QuartzCore.framework */,
 				374CE1891F04C93900B33E07 /* CoreMotion.framework */,
 				37378EE91F01F3EB00611941 /* libz.tbd */,
@@ -636,6 +647,16 @@
 			);
 			name = AliPay;
 			path = AwesomeProject/AliPay;
+			sourceTree = "<group>";
+		};
+		3750DAB61F0C9A63007BF7F4 /* umsdk_IOS_analyics_no-idfa */ = {
+			isa = PBXGroup;
+			children = (
+				3750DAD51F0C9A83007BF7F4 /* UMMobClick.framework */,
+				3750DAB71F0C9A63007BF7F4 /* UMNative.h */,
+				3750DAB81F0C9A63007BF7F4 /* UMNative.m */,
+			);
+			path = "umsdk_IOS_analyics_no-idfa";
 			sourceTree = "<group>";
 		};
 		375AEFDB1F03C984008DF6DC /* Products */ = {
@@ -1174,6 +1195,7 @@
 				37378F611F0262A900611941 /* OpenShare+Renren.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				37378F641F0262A900611941 /* OpenShare.m in Sources */,
+				3750DAB91F0C9A63007BF7F4 /* UMNative.m in Sources */,
 				37378F5F1F0262A900611941 /* OpenShare+Alipay.m in Sources */,
 				37378F621F0262A900611941 /* OpenShare+Weibo.m in Sources */,
 				374CE18F1F04C97800B33E07 /* Order.m in Sources */,
@@ -1297,6 +1319,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AwesomeProject/AliPay",
+					"$(PROJECT_DIR)/umsdk_IOS_analyics_no-idfa",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1329,6 +1352,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AwesomeProject/AliPay",
+					"$(PROJECT_DIR)/umsdk_IOS_analyics_no-idfa",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

@@ -19,10 +19,13 @@
 #import "OpenShareHeader.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "UPPaymentControl.h"
+#import <UMMobClick/MobClick.h>
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
  #ifdef NSFoundationVersionNumber_iOS_9_x_Max
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
@@ -62,6 +65,9 @@
   [OpenShare connectWeiboWithAppKey:@"wb3448287776"];
   [OpenShare connectWeixinWithAppId:@"wx3783eec7a89a70d5"];
 
+  UMConfigInstance.appKey = @"5765031967e58ef9490001f9";
+  [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
+  
   [self.window makeKeyAndVisible];
   return YES;
 }
