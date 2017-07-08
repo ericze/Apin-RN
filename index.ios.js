@@ -60,6 +60,14 @@ export default class AwesomeProject extends Component {
               );
             }
            );
+      //增加微信支付回调监听
+
+        DeviceEventEmitter.addListener(
+          'WeChat_Resp',
+          (response) => {
+              alert('支付成功');
+          }
+      );
     }
 
   componentWillUnmount(){

@@ -4,7 +4,7 @@
 //
 //  Created by Mot on 15/11/4.
 //  Copyright © 2015年 Facebook. All rights reserved.
-//
+//  ericze优化
 
 #import "SocietyLoginManager.h"
 #import <React/RCTEventDispatcher.h>
@@ -22,6 +22,14 @@ RCT_EXPORT_METHOD(call) {
 
 RCT_EXPORT_METHOD(qqLogin) {
   [self _callQQLogin];
+}
+
+RCT_EXPORT_METHOD(qqShare:(NSDictionary *)dic) {
+  [self _callQQShare:dic];
+}
+
+RCT_EXPORT_METHOD(sinaShare:(NSDictionary *)dic) {
+  [self _callQQShare:dic];
 }
 
 RCT_EXPORT_METHOD(wechatLogin) {
@@ -48,6 +56,57 @@ RCT_EXPORT_METHOD(isWeiboAppInstalled:(RCTResponseSenderBlock)callback)
 
 - (void)_callback {
   NSLog(@"Success call native modules");
+}
+
+//添加QQ Share功能
+-(void)_callQQShare:(NSDictionary *)dic{
+  OSMessage *mess = [OSMessage new];
+  mess.title = dic[@"title"];
+  mess.desc = dic[@"desc"];
+  mess.link = dic[@"link"];
+  
+  [OpenShare shareToQQFriends:mess Success:^(OSMessage *message) {
+    [self.bridge.eventDispatcher sendDeviceEventWithName:@"managerCallback"
+                                                    body:@{
+                                                           @"title": @"QQ分享成功",
+                                                           @"res": message
+                                                           }
+     ];
+  } Fail:^(OSMessage *message, NSError *error) {
+    [self.bridge.eventDispatcher sendDeviceEventWithName:@"managerCallback"
+                                                    body:@{
+                                                           @"title": @"QQ分享失败",
+                                                           @"res": message,
+                                                           @"error": error,
+                                                           }
+     ];
+  }];
+}
+
+//添加QQ Share功能
+-(void)_callsinaShare:(NSDictionary *)dic{
+  OSMessage *mess = [OSMessage new];
+  mess.title = dic[@"title"];
+  mess.desc = dic[@"desc"];
+  mess.link = dic[@"link"];
+
+  
+  [OpenShare shareToWeibo:mess Success:^(OSMessage *message) {
+    [self.bridge.eventDispatcher sendDeviceEventWithName:@"managerCallback"
+                                                    body:@{
+                                                           @"title": @"微博分享成功",
+                                                           @"res": message
+                                                           }
+     ];
+  } Fail:^(OSMessage *message, NSError *error) {
+    [self.bridge.eventDispatcher sendDeviceEventWithName:@"managerCallback"
+                                                    body:@{
+                                                           @"title": @"微博分享失败",
+                                                           @"res": message,
+                                                           @"error": error,
+                                                           }
+     ];
+  }];
 }
 
 -(void)_callQQLogin {

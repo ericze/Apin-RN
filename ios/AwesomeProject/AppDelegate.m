@@ -21,6 +21,7 @@
 #import "UPPaymentControl.h"
 #import <UMMobClick/MobClick.h>
 
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -105,11 +106,14 @@
       }
     }];
     
+    if ( [RCTLinkingManager application:application openURL:url
+                      sourceApplication:sourceApplication annotation:annotation]) {
+      return YES;
+    }
     if ([OpenShare handleOpenURL:url]) {
       return YES;
     }
-    return [RCTLinkingManager application:application openURL:url
-                        sourceApplication:sourceApplication annotation:annotation];
+    return NO;
   }
 //9.0之后新接口
 -(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
@@ -143,11 +147,14 @@
       }
     }];
   }
+  if ( [RCTLinkingManager application:app openURL:url
+                    sourceApplication:app annotation:options]) {
+    return YES;
+  }
   if ([OpenShare handleOpenURL:url]) {
     return YES;
   }
-  
-  return YES;
+  return NO;
 }
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 [JPUSHService registerDeviceToken:deviceToken];
