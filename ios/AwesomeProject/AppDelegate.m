@@ -63,7 +63,7 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [OpenShare connectQQWithAppId:@"1105694910"];
-  [OpenShare connectWeiboWithAppKey:@"wb3448287776"];
+  [OpenShare connectWeiboWithAppKey:@"3448287776"];
   [OpenShare connectWeixinWithAppId:@"wx3783eec7a89a70d5"];
 
   UMConfigInstance.appKey = @"5765031967e58ef9490001f9";
@@ -108,7 +108,7 @@
     
     if ( [RCTLinkingManager application:application openURL:url
                       sourceApplication:sourceApplication annotation:annotation]) {
-      return YES;
+    
     }
     if ([OpenShare handleOpenURL:url]) {
       return YES;
@@ -149,7 +149,7 @@
   }
   if ( [RCTLinkingManager application:app openURL:url
                     sourceApplication:app annotation:options]) {
-    return YES;
+    
   }
   if ([OpenShare handleOpenURL:url]) {
     return YES;

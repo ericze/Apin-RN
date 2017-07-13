@@ -35,6 +35,7 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* AwesomeProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AwesomeProjectTests.m */; };
+		37331A971F14D08C005D366C /* CB09B7F9-56C8-4890-8CC5-37BDD0715809@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37331A961F14D08C005D366C /* CB09B7F9-56C8-4890-8CC5-37BDD0715809@2x.png */; };
 		37378EE21F01F39600611941 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37378EE11F01F39600611941 /* SystemConfiguration.framework */; };
 		37378EE41F01F3A100611941 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37378EE31F01F3A100611941 /* CoreTelephony.framework */; };
 		37378EE61F01F3AE00611941 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37378EE51F01F3AE00611941 /* libsqlite3.0.tbd */; };
@@ -301,6 +302,7 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* AwesomeProject-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AwesomeProject-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* AwesomeProject-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AwesomeProject-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37331A961F14D08C005D366C /* CB09B7F9-56C8-4890-8CC5-37BDD0715809@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CB09B7F9-56C8-4890-8CC5-37BDD0715809@2x.png"; sourceTree = "<group>"; };
 		37378EE11F01F39600611941 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		37378EE31F01F3A100611941 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		37378EE51F01F3AE00611941 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -717,6 +719,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				37331A961F14D08C005D366C /* CB09B7F9-56C8-4890-8CC5-37BDD0715809@2x.png */,
 				13B07FAE1A68108700A75B9A /* AwesomeProject */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* AwesomeProjectTests */,
@@ -1126,6 +1129,7 @@
 			files = (
 				374CE1871F04C8FE00B33E07 /* AlipaySDK.bundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				37331A971F14D08C005D366C /* CB09B7F9-56C8-4890-8CC5-37BDD0715809@2x.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

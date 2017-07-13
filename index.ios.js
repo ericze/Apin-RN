@@ -21,6 +21,7 @@ import {
 ///进行导入NativeModules中的CalendarManger模块
 import { NativeModules } from 'react-native';
 import { NativeAppEventEmitter } from 'react-native';
+import Swiper from 'react-native-swiper';
 
 var subscription;
 var WeChat =require('react-native-wechat');
@@ -65,9 +66,18 @@ export default class AwesomeProject extends Component {
         DeviceEventEmitter.addListener(
           'WeChat_Resp',
           (response) => {
-              alert('支付成功');
+              alert('微信回调');
           }
       );
+      DeviceEventEmitter.addListener(
+                'managerCallback', (response) => {
+                    AlertIOS.alert(
+                        'response',
+                        JSON.stringify(response)
+                    );
+                }
+            );
+
     }
 
   componentWillUnmount(){
@@ -75,59 +85,29 @@ export default class AwesomeProject extends Component {
     }
 
   _weiboLogin() {
-        var _this = this;
         openShare.weiboLogin();
-
-        if (!_this.weiboLogin) {
-            _this.weiboLogin = DeviceEventEmitter.addListener(
-                'managerCallback', (response) => {
-                    AlertIOS.alert(
-                        'response',
-                         JSON.stringify(response)
-                    );
-
-                    _this.weiboLogin.remove();
-                    delete _this.weiboLogin;
-                }
-            );
-        }
     }
 
     _qqLogin() {
-        var _this = this;
         openShare.qqLogin();
-
-        if (!_this.qqLogin) {
-            _this.qqLogin = DeviceEventEmitter.addListener(
-                'managerCallback', (response) => {
-                    AlertIOS.alert(
-                        'response',
-                        JSON.stringify(response)
-                    );
-
-                    _this.qqLogin.remove();
-                    delete _this.qqLogin;
-                }
-            );
-        }
     }
 
     _wechatLogin() {
-        var _this = this;
         openShare.wechatLogin();
+    }
+    scrollImages(){
+      var imageViews = [];
+      for(var i=0;i<imageViews.length;i++){
+        imageViews.push(
+          <Image
+            key={i}
+            style={{flex:1}}
+            source={{uri:images[i]}}
+          />
 
-        if (!_this.wechatLogin) {
-            _this.wechatLogin = DeviceEventEmitter.addListener(
-                'managerCallback', (response) => {
-                    AlertIOS.alert(
-                        'response',
-                        JSON.stringify(response)
-                    );
-                    _this.wechatLogin.remove();
-                    delete _this.wechatLogin;
-                }
-            );
-        }
+        );
+      }
+      return imageViews;
     }
   render() {
     return (
@@ -257,8 +237,34 @@ export default class AwesomeProject extends Component {
                       }}
                 />
 
+                <CustomButton text='微博分享'
+                  onPress={() => {
+                          openShare.isWeiboAppInstalled(
+                            (error,events) => {
+                              if (events) {
+                                openShare.sinaShare({'title':'wudiddo','desc':'desscccc','link':'www.baidu.com'});
+                              } else {
+                                Alert.alert('没有安装微博，请您安装微博之后再试');
+                              }
+                            });
+                      }}
+                />
+
+                <CustomButton text='QQ分享'
+                  onPress={() => {
+                          openShare.isWeiboAppInstalled(
+                            (error,events) => {
+                              if (events) {
+                                openShare.qqShare({'title':'wudiddo','desc':'desscccc','link':'www.baidu.com'});
+                              } else {
+                                Alert.alert('没有安装微博，请您安装微博之后再试');
+                              }
+                            });
+                      }}
+                />
 
       </View>
+
     );
   }
 }
@@ -297,7 +303,33 @@ const styles = StyleSheet.create({
     padding:15,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor:'#cdcdcd',
-  }
+  },
+  wrapper: {
+
+  },
+ slide1: {
+   flex: 1,
+   justifyContent: 'center',
+   alignItems: 'center',
+   backgroundColor: '#9DD6EB',
+ },
+ slide2: {
+   flex: 1,
+   justifyContent: 'center',
+   alignItems: 'center',
+   backgroundColor: '#97CAE5',
+ },
+ slide3: {
+   flex: 1,
+   justifyContent: 'center',
+   alignItems: 'center',
+   backgroundColor: '#92BBD9',
+ },
+ text: {
+   color: '#fff',
+   fontSize: 30,
+   fontWeight: 'bold',
+ }
 });
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);

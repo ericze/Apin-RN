@@ -29,7 +29,7 @@ RCT_EXPORT_METHOD(qqShare:(NSDictionary *)dic) {
 }
 
 RCT_EXPORT_METHOD(sinaShare:(NSDictionary *)dic) {
-  [self _callQQShare:dic];
+  [self _callsinaShare:dic];
 }
 
 RCT_EXPORT_METHOD(wechatLogin) {
@@ -60,12 +60,15 @@ RCT_EXPORT_METHOD(isWeiboAppInstalled:(RCTResponseSenderBlock)callback)
 
 //添加QQ Share功能
 -(void)_callQQShare:(NSDictionary *)dic{
-  OSMessage *mess = [OSMessage new];
-  mess.title = dic[@"title"];
-  mess.desc = dic[@"desc"];
-  mess.link = dic[@"link"];
+ OSMessage *msg=[[OSMessage alloc] init];
+  msg.title = @"Hello OpenSharead";
+  msg.link = @"www.baidu.com";
+  msg.desc = @"这里写的是msg.description人脸识别考勤软件";
+  msg.image=[UIImage imageNamed:@"Lanch"];
+  msg.thumbnail=[UIImage imageNamed:@"CB09B7F9-56C8-4890-8CC5-37BDD0715809@2x"];
   
-  [OpenShare shareToQQFriends:mess Success:^(OSMessage *message) {
+  
+  [OpenShare shareToQQFriends:msg Success:^(OSMessage *message) {
     [self.bridge.eventDispatcher sendDeviceEventWithName:@"managerCallback"
                                                     body:@{
                                                            @"title": @"QQ分享成功",
@@ -85,11 +88,11 @@ RCT_EXPORT_METHOD(isWeiboAppInstalled:(RCTResponseSenderBlock)callback)
 
 //添加QQ Share功能
 -(void)_callsinaShare:(NSDictionary *)dic{
-  OSMessage *mess = [OSMessage new];
-  mess.title = dic[@"title"];
-  mess.desc = dic[@"desc"];
-  mess.link = dic[@"link"];
-
+  OSMessage *mess = [OpenShare message];
+  mess.title = @"title";
+  mess.desc = @"desccc";
+  mess.link = @"www.baidu.com";
+  mess.image = [UIImage new];
   
   [OpenShare shareToWeibo:mess Success:^(OSMessage *message) {
     [self.bridge.eventDispatcher sendDeviceEventWithName:@"managerCallback"
